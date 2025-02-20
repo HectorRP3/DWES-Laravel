@@ -24,7 +24,11 @@ class EventoController extends Controller
 
     public function listarEventos()
     {
-        $eventos = Evento::with('usuarioCrea')->with('usuarioParticipante')->with('especie')->get();
-        return response()->json($eventos);
+        $eventos = Evento::with('especie')->with('usuarioParticipante')->with('usuarioCrea')->get();
+        // $eventos = Evento::with(['especie' => function ($query) {
+        //     $query->withPivot('Cantidad');
+        //     $query->where('Cantidad', '>', 9);
+        // }])->get();
+        return view('listarEventos', compact('eventos'));
     }
 }

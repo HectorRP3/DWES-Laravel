@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beneficio;
 use Illuminate\Http\Request;
 use App\Models\Especie;
 
@@ -23,7 +24,8 @@ class EspecieController extends Controller
 
     public function listarEspecies()
     {
-        $especies = Especie::with('evento')->get();
-        return response()->json($especies);
+        $especies = Especie::with('evento')->with('beneficio')->get();
+        return view('listarEspecies', compact('especies'));
+        // return response()->json($especies);
     }
 }
