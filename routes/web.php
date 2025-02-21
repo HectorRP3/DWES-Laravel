@@ -34,11 +34,15 @@ Route::get('/notas', [NotaController::class, 'index'])->name("notas");
 
 Route::get('/notas/{id}', [NotaController::class, 'show'])->name("show");
 
+
+
 Route::get('/evento', [EventoController::class, 'crearEvento'])->name("evento");
 
 Route::get('/usuario', [UsuarioController::class, 'crearUsuario'])->name("usuario");
 
 Route::get('/especie', [EspecieController::class, 'crearEspecie'])->name("especie");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/listar-usuarios', [UsuarioController::class, 'listarUsuarios'])->name("listar.usuarios");
 
@@ -48,3 +52,5 @@ Route::get('/listar-especies', [EspecieController::class, 'listarEspecies'])->na
 
 
 Route::get('/insert', [ControllerInsert::class, 'allFuntions'])->name("insert");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
