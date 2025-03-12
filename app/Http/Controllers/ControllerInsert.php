@@ -83,7 +83,6 @@ class ControllerInsert extends Controller
         $evento->save();
 
 
-
         return response()->json($evento);
     }
 
