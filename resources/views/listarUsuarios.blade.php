@@ -21,7 +21,20 @@
                     @foreach ( $usuario->eventoParticipante as $evento )
                         <li>{{$evento->Nombre}}</li>
                     @endforeach
+                    @empty($usuario->eventoParticipante)
+                        <p>No participa en ningun evento</p>
+                    @endempty
                 </ul>
+                <p>Eventos que ha creado</p>
+                <ul>
+                    @foreach ( $usuario->eventoCrea as $evento )
+                        <li>{{$evento->Nombre}}</li>
+                    @endforeach
+                    @empty($usuario->eventoCrea)
+                        <p>No tiene eventos creados</p>
+                    @endempty
+                </ul>
+
             @endforeach
         @endisset
         @empty($usuarios)

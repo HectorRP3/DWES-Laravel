@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Especie;
+use App\Models\Evento;
 use App\Models\Usuario;
 use Carbon\Carbon;
 
@@ -15,7 +16,7 @@ class EspeciesSeeder extends Seeder
      */
     public function run(): void
     {
-        Especie::factory(5)->create();
+        Especie::factory(5)->hasAttached(Evento::factory()->count(4), ["cantidad" => 5], 'evento')->create();
         //
         // Especie::create([
         //     'NombreCientifico' => 'Especie Teste',
