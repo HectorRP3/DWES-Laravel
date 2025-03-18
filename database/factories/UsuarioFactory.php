@@ -20,12 +20,12 @@ class UsuarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nick' => $this->faker->name(),
-            'Nombre' => $this->faker->name(),
-            'Apellidos' => $this->faker->name(),
-            'Email' => $this->faker->email(),
-            'Password' => $this->faker->password(),
-            'Karma' => $this->faker->randomNumber(),
+            'nick' => $this->faker->name(),
+            'nombre' => $this->faker->name(),
+            'apellidos' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'password' => $this->faker->password(),
+            'karma' => $this->faker->randomNumber(),
             'suscrito' => $this->faker->boolean(),
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),

@@ -17,68 +17,80 @@ class UsuarioSeeder extends Seeder
     {
         //
 
-        Usuario::factory(10)->create();
+        Usuario::factory(1)->create();
 
         // Usuario::factory()
         //     ->count(5)
         //     ->has(Evento::factory()->count(3), 'eventoCrea')
         //     ->create();
         // Usuario::create([
-        //     'Nick' => 'Usuario 1',
-        //     'Nombre' => 'Nombre 1',
-        //     'Apellidos' => 'Apellidos 1',
-        //     'Email' => 'Email 1',
-        //     'Password' => 'Password 1',
-        //     'Karma' => 0,
-        //     'suscrito' => false,
-        //     'created_at' => Carbon::now(),
-        //     'updated_at' => Carbon::now(),
-        // ]);
-        // Usuario::create([
-
-        //     'Nick' => 'Usuario 2',
-        //     'Nombre' => 'Nombre 2',
-        //     'Apellidos' => 'Apellidos 2',
-        //     'Email' => 'Email 2',
-        //     'Password' => 'Password 2',
-        //     'Karma' => 0,
+        //     'nick' => 'Usuario 1',
+        //     'nombre' => 'Nombre 1',
+        //     'apellidos' => 'Apellidos 1',
+        //     'email' => 'Email 1',
+        //     'password' => 'Password 1',
+        //     'karma' => 0,
         //     'suscrito' => false,
         //     'created_at' => Carbon::now(),
         //     'updated_at' => Carbon::now(),
         // ]);
 
         // Usuario::create([
-        //     'Nick' => 'Usuario 3',
-        //     'Nombre' => 'Nombre 3',
-        //     'Apellidos' => 'Apellidos 3',
-        //     'Email' => 'Email 3',
-        //     'Password' => 'Password 3',
-        //     'Karma' => 0,
+        //     'nick' => 'UsuarioA',
+        //     'nombre' => 'Pedro',
+        //     'apellidos' => 'Fernández',
+        //     'email' => 'usuarioA@example.com',
+        //     'password' => 'PasswordE',
+        //     'karma' => 30,
+        //     'suscrito' => true,
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+
+        // Usuario::create([
+        //     'nick' => 'UsuarioB',
+        //     'nombre' => 'Ana',
+        //     'apellidos' => 'Martínez',
+        //     'email' => 'usuarioA32@example.com',
+        //     'password' => 'PasswordD',
+        //     'karma' => 10,
         //     'suscrito' => false,
         //     'created_at' => Carbon::now(),
         //     'updated_at' => Carbon::now(),
         // ]);
 
         // Usuario::create([
-        //     'Nick' => 'Usuario 4',
-        //     'Nombre' => 'Nombre 4',
-        //     'Apellidos' => 'Apellidos 4',
-        //     'Email' => 'Email 4',
-        //     'Password' => 'Password 4',
-        //     'Karma' => 0,
-        //     'suscrito' => false,
+        //     'nick' => 'UsuarioC',
+        //     'nombre' => 'Ana',
+        //     'apellidos' => 'Martínez',
+        //     'email' => 'usuarioD@example.com',
+        //     'password' => 'PasswordB',
+        //     'karma' => 10,
+        //     'suscrito' => true,
         //     'created_at' => Carbon::now(),
         //     'updated_at' => Carbon::now(),
         // ]);
 
         // Usuario::create([
-        //     'Nick' => 'Usuario 5',
-        //     'Nombre' => 'Nombre 5',
-        //     'Apellidos' => 'Apellidos 5',
-        //     'Email' => 'Email 5',
-        //     'Password' => 'Password 5',
-        //     'Karma' => 0,
-        //     'suscrito' => false,
+        //     'nick' => 'UsuarioD',
+        //     'nombre' => 'María',
+        //     'apellidos' => 'González',
+        //     'email' => 'usuarioA3@example.com',
+        //     'password' => 'PasswordB',
+        //     'karma' => 20,
+        //     'suscrito' => true,
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+
+        // Usuario::create([
+        //     'nick' => 'UsuarioC3',
+        //     'nombre' => 'María',
+        //     'apellidos' => 'López',
+        //     'email' => 'usuarioE@example.com',
+        //     'password' => 'PasswordD',
+        //     'karma' => 40,
+        //     'suscrito' => true,
         //     'created_at' => Carbon::now(),
         //     'updated_at' => Carbon::now(),
         // ]);

@@ -1,12 +1,12 @@
 @extends('layout')
 
 @section('title')
-    Notas
+    Reforesta
 @endsection
 
 @section('contenido')
-     <ul class=""> 
+     {{-- <ul class="">
         <li class=""><a  href="{{route('crear')}}">Crear Nota</a></li>
         <li class=""><a  href="{{route('listar.notas')}}">ListarNota</a></li>
-    </ul>
+    </ul> --}}
 @endsection

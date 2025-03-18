@@ -14,7 +14,7 @@ return new class extends Migration
         //
         Schema::create('beneficios', function (Blueprint $table) {
             $table->id();
-            $table->string('Descripcion');
+            $table->string('descripcion');
             $table->timestamps();
         });
 

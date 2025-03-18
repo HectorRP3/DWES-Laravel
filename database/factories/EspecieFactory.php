@@ -19,13 +19,13 @@ class EspecieFactory extends Factory
     public function definition(): array
     {
         return [
-            'NombreCientifico' => $this->faker->name(),
-            'NombreComun' => $this->faker->name(),
-            'Clima' => $this->faker->name(),
-            'RegionOrigen' => $this->faker->name(),
-            'Crecimineto' => $this->faker->randomNumber(),
-            'ImagenUrl' => $this->faker->url(),
-            'Enlace' => $this->faker->url(),
+            'nombreCientifico' => $this->faker->name(),
+            'nombreComun' => $this->faker->name(),
+            'clima' => $this->faker->name(),
+            'regionOrigen' => $this->faker->name(),
+            'crecimiento' => $this->faker->randomNumber(),
+            'imagenUrl' => $this->faker->url(),
+            'enlace' => $this->faker->url(),
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),
         ];

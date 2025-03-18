@@ -10,40 +10,37 @@ use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
-    public function listarUsuarios()
+    public function index()
     {
         $usuarios = Usuario::with('eventoParticipante')->with('eventoCrea')->get();
-        return view('listarUsuarios', compact('usuarios'));
+        return view('usuarios.index', compact('usuarios'));
         //return response()->json($usuarios);
     }
 
-    public function crearUsuario()
+    public function create()
     {
-        $user = new Usuario();
-        $user->Nick = "Usuario Test22e22";
-        $user->Nombre = "Nombre Teste";
-        $user->Apellidos = "Apellidos Teste";
-        $user->Email = "Email Teste22222";
-        $user->Password = "Password Teste";
-        $user->Karma = 0;
-        $user->suscrito = false;
-
-        $user->save();
-        DB::table('participantes')->insert([
-            'usuarios_id' => 1,
-            'eventos_id' => 1
-        ]);
-        return response()->json($user);
+        return view('usuarios.create');
     }
 
-    // $table->id();
-    //         $table->string('Nick')->unique();
-    //         $table->string('Nombre');
-    //         $table->string('Apellidos');
-    //         $table->string('Email')->unique();
-    //         $table->string('Password');
-    //         $table->integer('Karma');
-    //         $table->boolean('suscrito');
-    //         $table->timestamps();
-    //         $table->primary(['id']);
+    public function store(Request $request)
+    {
+        $suscrito = $request->suscrito == 1 ? false : true;
+        $request->validate([
+            'Nick' => 'required|unique:usuarios',
+            'Email' => 'required|unique:usuarios|email',
+            'Nombre' => 'required',
+            'Apellidos' => 'required',
+            'suscrito' => 'required',
+        ]);
+        Usuario::create([
+            'Nick' => $request->nick,
+            'Nombre' => $request->nombre,
+            'Apellidos' => $request->apellidos,
+            'Email' => $request->email,
+            'Password' => bcrypt($request->password),
+            'suscrito' => $suscrito,
+            'Karma' => 0
+        ]);
+        return redirect()->route('usuarios.index')->with('success', 'UsuariosCreado!');
+    }
 }

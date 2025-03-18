@@ -17,63 +17,74 @@ class EspeciesSeeder extends Seeder
     public function run(): void
     {
         Especie::factory(5)->hasAttached(Evento::factory()->count(4), ["cantidad" => 5], 'evento')->create();
-        //
+
         // Especie::create([
-        //     'NombreCientifico' => 'Especie Teste',
-        //     'NombreComun' => 'Nombre Comun Teste',
-        //     'Clima' => 'Clima Teste',
-        //     'RegionOrigen' => 'Region Origen Teste',
-        //     'Crecimineto' => 0,
-        //     'ImagenUrl' => 'https://www.google.com',
-        //     'Enlace' => 'https://www.google.com',
+        //     'nombreCientifico' => 'Especie Teste',
+        //     'nombreComun' => 'Nombre Comun Teste',
+        //     'clima' => 'Clima Teste',
+        //     'regionOrigen' => 'Region Origen Teste',
+        //     'crecimiento' => 0,
+        //     'imagenUrl' => 'https://www.google.com',
+        //     'enlace' => 'https://www.google.com',
+        //     'updated_at' => Carbon::now(),
+        //     'created_at' => Carbon::now(),
+        // ]);
+        // Especie::create([
+        //     'nombreCientifico' => 'Especie Alpha3',
+        //     'nombreComun' => 'Nombre Comun E',
+        //     'clima' => 'Mediterráneo',
+        //     'regionOrigen' => 'Asia',
+        //     'crecimiento' => 3,
+        //     'imagenUrl' => 'https://example.com/img1.jpg',
+        //     'enlace' => 'https://example.com/info1',
         //     'updated_at' => Carbon::now(),
         //     'created_at' => Carbon::now(),
         // ]);
 
         // Especie::create([
-        //     'NombreCientifico' => 'Especie Teste 2',
-        //     'NombreComun' => 'Nombre Comun Teste 2',
-        //     'Clima' => 'Clima Teste 2',
-        //     'RegionOrigen' => 'Region Origen Teste 2',
-        //     'Crecimineto' => 0,
-        //     'ImagenUrl' => 'https://www.google.com',
-        //     'Enlace' => 'https://www.google.com',
+        //     'nombreCientifico' => 'Especie Delta',
+        //     'nombreComun' => 'Nombre Comun C',
+        //     'clima' => 'Húmedo',
+        //     'regionOrigen' => 'Oceanía',
+        //     'crecimiento' => 4,
+        //     'imagenUrl' => 'https://example.com/img4.jpg',
+        //     'enlace' => 'https://example.com/info5',
         //     'updated_at' => Carbon::now(),
         //     'created_at' => Carbon::now(),
         // ]);
 
         // Especie::create([
-        //     'NombreCientifico' => 'Especie Teste 3',
-        //     'NombreComun' => 'Nombre Comun Teste 3',
-        //     'Clima' => 'Clima Teste 3',
-        //     'RegionOrigen' => 'Region Origen Teste 3',
-        //     'Crecimineto' => 0,
-        //     'ImagenUrl' => 'https://www.google.com',
-        //     'Enlace' => 'https://www.google.com',
+        //     'nombreCientifico' => 'Especie Alpha2',
+        //     'nombreComun' => 'Nombre Comun B',
+        //     'clima' => 'Árido',
+        //     'regionOrigen' => 'África',
+        //     'crecimiento' => 2,
+        //     'imagenUrl' => 'https://example.com/img4.jpg',
+        //     'enlace' => 'https://example.com/info2',
         //     'updated_at' => Carbon::now(),
         //     'created_at' => Carbon::now(),
         // ]);
 
         // Especie::create([
-        //     'NombreCientifico' => 'Especie Teste 4',
-        //     'NombreComun' => 'Nombre Comun Teste 4',
-        //     'Clima' => 'Clima Teste 4',
-        //     'RegionOrigen' => 'Region Origen Teste 4',
-        //     'Crecimineto' => 0,
-        //     'ImagenUrl' => 'https://www.google.com',
-        //     'Enlace' => 'https://www.google.com',
+        //     'nombreCientifico' => 'Especie Beta3',
+        //     'nombreComun' => 'Nombre Comun B',
+        //     'clima' => 'Templado',
+        //     'regionOrigen' => 'África',
+        //     'crecimiento' => 1,
+        //     'imagenUrl' => 'https://example.com/img3.jpg',
+        //     'enlace' => 'https://example.com/info5',
         //     'updated_at' => Carbon::now(),
         //     'created_at' => Carbon::now(),
         // ]);
 
         // Especie::create([
-        //     'NombreCientifico' => 'Especie Teste 5',
-        //     'NombreComun' => 'Nombre Comun Teste 5',
-        //     'Clima' => 'Clima Teste 5',
-        //     'RegionOrigen' => 'Region Origen Teste 5',
-        //     'Crecimineto' => 0,
-        //     'ImagenUrl' => 'https://www.google.com',
-        //     'Enlace' => 'https://www.google.com',
+        //     'nombreCientifico' => 'Especie Alpha',
+        //     'nombreComun' => 'Nombre Comun B',
+        //     'clima' => 'Húmedo',
+        //     'regionOrigen' => 'América del Sur',
+        //     'crecimiento' => 3,
+        //     'imagenUrl' => 'https://example.com/img2.jpg',
+        //     'enlace' => 'https://example.com/info2',
         //     'updated_at' => Carbon::now(),
         //     'created_at' => Carbon::now(),
         // ]);

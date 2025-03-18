@@ -12,45 +12,49 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/hola', function () {
-    return 'Hello world';
-});
+// Route::get('/hola', function () {
+//     return 'Hello world';
+// });
 
-Route::get('/crear-nota', [NotaController::class, 'crearNota'])->name("crear");
+// Route::get('/crear-nota', [NotaController::class, 'crearNota'])->name("crear");
 
-Route::get('/saludo/{nombre?}/{id?}', function ($nombre = 'Invitado', $id = 0) {
-    return 'Saludos ' . $nombre . ' tu id es ' . $id;
-});
+// Route::get('/saludo/{nombre?}/{id?}', function ($nombre = 'Invitado', $id = 0) {
+//     return 'Saludos ' . $nombre . ' tu id es ' . $id;
+// });
 
-Route::get('/listar-notas', [NotaController::class, 'listarNotas'])->name("listar.notas");
+// Route::get('/listar-notas', [NotaController::class, 'listarNotas'])->name("listar.notas");
 
 // Route::resource('/notas', NotaController::class);
 
-Route::get('/notas/destroy/{id}', [NotaController::class, 'destroy'])->name("destroy");
+// Route::get('/notas/destroy/{id}', [NotaController::class, 'destroy'])->name("destroy");
 
-Route::get('/notas/{id}/edit', [NotaController::class, 'edit'])->name("edit");
+// Route::get('/notas/{id}/edit', [NotaController::class, 'edit'])->name("edit");
 
-Route::get('/notas', [NotaController::class, 'index'])->name("notas");
+// Route::get('/notas', [NotaController::class, 'index'])->name("notas");
 
-Route::get('/notas/{id}', [NotaController::class, 'show'])->name("show");
+// Route::get('/notas/{id}', [NotaController::class, 'show'])->name("show");
 
 
 
-Route::get('/evento', [EventoController::class, 'crearEvento'])->name("evento");
+// Route::get('/evento', [EventoController::class, 'crearEvento'])->name("evento");
 
-Route::get('/usuario', [UsuarioController::class, 'crearUsuario'])->name("usuario");
+// Route::get('/usuario', [UsuarioController::class, 'crearUsuario'])->name("usuario");
 
-Route::get('/especie', [EspecieController::class, 'crearEspecie'])->name("especie");
+// Route::get('/especie', [EspecieController::class, 'crearEspecie'])->name("especie");
+
+
+// Route::get('/listar-usuarios', [UsuarioController::class, 'listarUsuarios'])->name("listar.usuarios");
+
+// Route::get('/listar-eventos', [EventoController::class, 'listarEventos'])->name("listar.eventos");
+
+// Route::get('/listar-especies', [EspecieController::class, 'listarEspecies'])->name("listar.especies");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/listar-usuarios', [UsuarioController::class, 'listarUsuarios'])->name("listar.usuarios");
+Route::resource('/especies', EspecieController::class);
 
-Route::get('/listar-eventos', [EventoController::class, 'listarEventos'])->name("listar.eventos");
+Route::resource('/eventos', EventoController::class);
 
-Route::get('/listar-especies', [EspecieController::class, 'listarEspecies'])->name("listar.especies");
-
-
-Route::get('/insert', [ControllerInsert::class, 'allFuntions'])->name("insert");
+Route::resource('/usuarios', UsuarioController::class);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

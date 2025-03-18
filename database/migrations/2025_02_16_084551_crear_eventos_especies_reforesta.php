@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('eventos_especies', function (Blueprint $table) {
             $table->foreignId('eventos_id')->constrained('eventos')->onDelete('cascade');
             $table->foreignId('especies_id')->constrained('especies')->onDelete('cascade');
-            $table->integer('Cantidad');
+            $table->integer('cantidad');
             $table->timestamps();
             $table->primary(['eventos_id', 'especies_id']);
         });

@@ -20,13 +20,13 @@ class EventoFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nombre' => $this->faker->name(),
-            'Descripcion' => $this->faker->name(),
-            'Ubicacion' => $this->faker->name(),
-            'TipoEvento' => $this->faker->randomElement(['Reforestacion', 'Charla', 'Taller']),
-            'TipoTerreno' => $this->faker->randomElement(['Urbano', 'Rural', 'Montaña', 'Playa']),
-            'Fecha' => $this->faker->dateTime(),
-            'ImagenUrl' => $this->faker->url(),
+            'nombre' => $this->faker->name(),
+            'descripcion' => $this->faker->name(),
+            'ubicacion' => $this->faker->name(),
+            'tipoEvento' => $this->faker->randomElement(['Reforestacion', 'Charla', 'Taller']),
+            'tipoTerreno' => $this->faker->randomElement(['Urbano', 'Rural', 'Montaña', 'Playa']),
+            'fecha' => $this->faker->dateTime(),
+            'imagenUrl' => $this->faker->url(),
             'anfitrion_id' => Usuario::factory(),
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),

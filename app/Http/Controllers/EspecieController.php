@@ -8,24 +8,15 @@ use App\Models\Especie;
 
 class EspecieController extends Controller
 {
-    public function crearEspecie()
-    {
-        $especie = new Especie();
-        $especie->NombreCientifico = "Especie Teste";
-        $especie->NombreComun = "Nombre Comun Teste";
-        $especie->Clima = "Clima Teste";
-        $especie->RegionOrigen = "Region Origen Teste";
-        $especie->Crecimineto = 0;
-        $especie->ImagenUrl = "https://www.google.com";
-        $especie->Enlace = "https://www.google.com";
-        $especie->save();
-        return response()->json($especie);
-    }
-
-    public function listarEspecies()
+    public function index()
     {
         $especies = Especie::with('evento')->with('beneficio')->get();
-        return view('listarEspecies', compact('especies'));
+        return view('especies.index', compact('especies'));
         // return response()->json($especies);
+    }
+
+    public function create()
+    {
+        return view('especies.create');
     }
 }

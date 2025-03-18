@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('especies', function (Blueprint $table) {
             $table->id();
-            $table->string('NombreCientifico')->unique();
-            $table->string('NombreComun');
-            $table->string('Clima');
-            $table->string('RegionOrigen');
-            $table->integer('Crecimineto');
-            $table->string('ImagenUrl');
-            $table->string('Enlace');
+            $table->string('nombreCientifico')->unique();
+            $table->string('nombreComun');
+            $table->string('clima');
+            $table->string('regionOrigen');
+            $table->integer('crecimiento');
+            $table->string('imagenUrl');
+            $table->string('enlace');
             $table->timestamps();
             $table->primary(['id']);
         });

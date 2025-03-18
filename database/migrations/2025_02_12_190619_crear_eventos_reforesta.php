@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Descripcion');
-            $table->string('Ubicacion');
-            $table->enum('TipoEvento', ['Reforestacion', 'Charla', 'Taller']);
-            $table->enum('TipoTerreno', ['Urbano', 'Rural', 'Montaña', 'Playa']);
-            $table->date('Fecha');
-            $table->string('ImagenUrl');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('ubicacion');
+            $table->enum('tipoEvento', ['Reforestacion', 'Charla', 'Taller']);
+            $table->enum('tipoTerreno', ['Urbano', 'Rural', 'Montaña', 'Playa']);
+            $table->date('fecha');
+            $table->string('imagenUrl');
             $table->timestamps();
             $table->primary(['id']);
             $table->foreignId('anfitrion_id')->nullable()->constrained('usuarios')->onDelete('cascade');

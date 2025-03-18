@@ -79,15 +79,15 @@ class TablasSeeder extends Seeder
         ]);
 
         DB::table('beneficios')->insert([
-            'Descripcion' => 'Beneficio 1'
+            'descripcion' => 'Beneficio 1'
         ]);
 
         DB::table('beneficios')->insert([
-            'Descripcion' => 'Beneficio 2'
+            'descripcion' => 'Beneficio 2'
         ]);
 
         DB::table('beneficios')->insert([
-            'Descripcion' => 'Beneficio 3'
+            'descripcion' => 'Beneficio 3'
         ]);
 
         DB::table('beneficios_especies')->insert([
