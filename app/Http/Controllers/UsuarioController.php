@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Usuario;
 use App\Models\Evento;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
@@ -14,7 +15,6 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::with('eventoParticipante')->with('eventoCrea')->get();
         return view('usuarios.index', compact('usuarios'));
-        //return response()->json($usuarios);
     }
 
     public function create()
@@ -26,21 +26,66 @@ class UsuarioController extends Controller
     {
         $suscrito = $request->suscrito == 1 ? false : true;
         $request->validate([
-            'Nick' => 'required|unique:usuarios',
-            'Email' => 'required|unique:usuarios|email',
-            'Nombre' => 'required',
-            'Apellidos' => 'required',
-            'suscrito' => 'required',
+            'nick' => 'required|unique:usuarios',
+            'email' => 'required|unique:usuarios|email',
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'password' => 'required'
         ]);
         Usuario::create([
-            'Nick' => $request->nick,
-            'Nombre' => $request->nombre,
-            'Apellidos' => $request->apellidos,
-            'Email' => $request->email,
-            'Password' => bcrypt($request->password),
+            'nick' => $request->nick,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
             'suscrito' => $suscrito,
-            'Karma' => 0
+            'karma' => 0
         ]);
         return redirect()->route('usuarios.index')->with('success', 'UsuariosCreado!');
+    }
+
+    public function show($id)
+    {
+        $usuario = Usuario::find($id);
+        return view('usuarios.show', compact('usuario'));
+    }
+
+    public function edit(Usuario $usuario)
+    {
+        return view('usuarios.edit', compact('usuario'));
+    }
+
+    public function update(Request $request, Usuario $usuario)
+    {
+        $suscrito = $request->suscrito == 1 ? false : true;
+        $request->validate([
+            'nick' => 'required|unique:usuarios,nick,' . $usuario->id,
+            'email' => 'required|unique:usuarios,email,' . $usuario->id . '|email',
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'password' => 'required'
+        ]);
+        $usuario->update([
+            'nick' => $request->nick,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'suscrito' => $suscrito,
+        ]);
+        return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado con exito');
+    }
+
+
+    public function destroy($id)
+    {
+        $usuario = Usuario::find($id);
+        // DB::table('participantes')->where('usuarios_id', $usuario->id)->delete();
+        // DB::table('eventos')->where('anfitrion_id', $usuario->id)->delete();
+        // DB::table('usuarios')->where('id', $usuario->id)->delete();
+        $usuario->eventoParticipante()->delete();
+        $usuario->eventoCrea()->delete();
+        $usuario->delete();
+        return redirect()->route('usuarios.index')->with('success', 'Usuario borrado con exito');
     }
 }

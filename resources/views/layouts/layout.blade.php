@@ -14,8 +14,8 @@
         <link rel="stylesheet" href="../css/app.css"/>
     </head>
     <body >
-        @include('componentes.navegacion')
+        @include('partials.navegacion')
         @yield('contenido')
-        @include("componentes.footer")
+        @include("partials.footer")
     </body>
 </html>

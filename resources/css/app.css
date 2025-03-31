@@ -1,3 +1,8 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,7 +10,7 @@
 }
 
 body{
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
 }
 
 .navegacion{
@@ -138,4 +143,40 @@ body{
             }
         }
     }
+}
+
+article{
+    border: 2px solid red;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+
+
+    & ul{
+        list-style: none;
+        padding: 0.5rem;
+        & li{
+            padding: 0.5rem;
+            &:hover{
+                background-color: rgb(216, 176, 176);
+            }
+        }
+    }
+}
+
+.form__label{
+    @apply   block w-full text-lg text-[#890404] text-left font-bold;
+}
+
+.form__control{
+    @apply  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+}
+
+.form__button{
+    @apply text-white bg-[#890404] hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
 }

@@ -11,12 +11,12 @@ class Usuario extends Model
     protected $table = 'usuarios';
 
     protected $fillable = [
-        'Nick',
-        'Nombre',
-        'Apellidos',
-        'Email',
-        'Password',
-        'Karma',
+        'nick',
+        'nombre',
+        'apellidos',
+        'email',
+        'password',
+        'karma',
         'suscrito',
         'created_at',
         'updated_at',

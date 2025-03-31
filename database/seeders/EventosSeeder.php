@@ -22,9 +22,9 @@ class EventosSeeder extends Seeder
             ->count(5)
             ->has(Usuario::factory()->count(2), 'usuarioCrea')
             ->hasAttached(Usuario::factory()->count(2), [], 'usuarioParticipante')
-            // ->hasAttached(Especie::factory()->count(3), ["cantidad" => 5], 'especie')
             ->create();
 
+        // ->hasAttached(Especie::factory()->count(3), ["cantidad" => 5], 'especie')
 
 
         // Evento::create([

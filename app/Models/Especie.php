@@ -11,13 +11,13 @@ class Especie extends Model
     protected $table = 'especies';
 
     protected $fillable = [
-        'NombreCientifico',
-        'NombreComun',
-        'Clima',
-        'RegionOrigen',
-        'Crecimineto',
-        'ImagenUrl',
-        'Enlace',
+        'nombreCientifico',
+        'nombreComun',
+        'clima',
+        'regionOrigen',
+        'crecimiento',
+        'imagenUrl',
+        'enlace',
         'created_at',
         'updated_at',
     ];

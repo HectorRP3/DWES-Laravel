@@ -1,44 +1,27 @@
-@extends("layout")
+@extends("layouts.layout")
 @section("title")
     Listar Usuarios
 @endsection
 
 @section("contenido")
-<section class="section">
+<section class="section bg-yellow-300">
     <h1>Usuarios</h1>
     <div>
         @isset($usuarios)
             @foreach($usuarios as $usuario)
-            <article>
-                <h1>{{$usuario->nombre}}</h1>
-                <p>Email: {{$usuario->email}}</p>
-                <p>Apellidos: {{$usuario->apellidos}}</p>
-                <p>Karma: {{$usuario->karma}}</p>
-                @if($usuario->suscrito == 1)
-                    <p>Suscrito: Si</p>
-                @else
-                    <p>Suscrito: No</p>
-                @endif
-                <p>Eventos en el que participa</p>
-                <ul>
-                    @foreach ( $usuario->eventoParticipante as $evento )
-                        <li>{{$evento->nombre}}</li>
-                    @endforeach
-                    @empty($usuario->eventoParticipante)
-                        <p>No participa en ningun evento</p>
-                    @endempty
-                </ul>
-                <p>Eventos que ha creado</p>
-                <ul>
-                    @foreach ( $usuario->eventoCrea as $evento )
-                        <li>{{$evento->nombre}}</li>
-                    @endforeach
-                    @empty($usuario->eventoCrea)
-                        <p>No tiene eventos creados</p>
-                    @endempty
-                </ul>
-
-            </article>
+            @component('components.user-card',
+                [
+                    'usuario' => $usuario,
+                ]
+            )
+                <a href="{{route('usuarios.edit',$usuario->id)}}" class="font-bold text-white no-underline bg-[#890404] p-2 rounded-lg text-center hover:bg-white hover:text-[#890404] hover:border-red hover:border-solid">Editar usuario</a>
+                <a href="{{route('usuarios.show',$usuario->id)}}" class="font-bold text-white no-underline bg-[#890404] p-2 rounded-lg text-center hover:bg-white hover:text-[#890404] hover:border-red hover:border-solid">Ver usuario</a>
+                <form method="POST" action="{{route('usuarios.destroy', $usuario->id) }}" class="w-full"  >
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="w-full font-bold text-white no-underline bg-[#890404] p-2 rounded-lg text-center hover:bg-white hover:text-[#890404] hover:border-red hover:border-solid">Borrar usuarios</button>
+                </form>
+            @endcomponent
             @endforeach
         @endisset
         @empty($usuarios)

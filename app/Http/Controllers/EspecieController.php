@@ -19,4 +19,33 @@ class EspecieController extends Controller
     {
         return view('especies.create');
     }
+
+    public function store(Request $request)
+    {
+        Especie::create([
+            'nombreCientifico' => $request->nombreCientifico,
+            'nombreComun' => $request->nombreComun,
+            'clima' => $request->clima,
+            'regionOrigen' => $request->regionOrigen,
+            'crecimiento' => $request->crecimiento,
+            'imagenUrl' => $request->imagenUrl,
+            'enlace' => $request->enlace,
+        ]);
+        return redirect()->route('especies.index')->with('success', 'Especie Creado!');
+    }
+
+    public function show($id)
+    {
+        $especie = Especie::find($id);
+        return view('especies.show', compact('especie'));
+    }
+
+    public function destroy($id)
+    {
+        $especie = Especie::find($id);
+        $especie->evento()->delete();
+        $especie->beneficio()->delete();
+        $especie->delete();
+        return redirect()->route('especies.index')->with('success', 'Especie borrado con exito');
+    }
 }

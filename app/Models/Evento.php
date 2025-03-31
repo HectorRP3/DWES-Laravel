@@ -11,13 +11,13 @@ class Evento extends Model
     protected $table = 'eventos';
 
     protected $fillable = [
-        'Nombre',
-        'Descripcion',
-        'Ubicacion',
-        'TipoEvento',
-        'TipoTerreno',
-        'Fecha',
-        'ImagenUrl',
+        'nombre',
+        'descripcion',
+        'ubicacion',
+        'tipoEvento',
+        'tipoTerreno',
+        'fecha',
+        'imagenUrl',
         'anfitrion_id',
         'created_at',
         'updated_at',
