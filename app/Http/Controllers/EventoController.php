@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Especie;
 use Illuminate\Http\Request;
 use App\Models\Evento;
 
@@ -41,6 +42,26 @@ class EventoController extends Controller
     {
         $evento = Evento::find($id);
         return view('eventos.show', compact('evento'));
+    }
+
+    public function edit(Evento $evento)
+    {
+        return view('eventos.edit', compact('evento'));
+    }
+
+    public function update(Request $request, Evento $evento)
+    {
+        $evento->update([
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'ubicacion' => $request->ubicacion,
+            'tipoEvento' => $request->tipoEvento,
+            'tipoTerreno' => $request->tipoTerreno,
+            'fecha' => $request->fecha,
+            'imagenUrl' => $request->imagenUrl,
+            'anfitrion_id' => $request->anfitrion_id,
+        ]);
+        return redirect()->route('eventos.index')->with('success', 'Evento actualizado con exito');
     }
 
     public function destroy($id)

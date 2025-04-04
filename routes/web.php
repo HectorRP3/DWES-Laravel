@@ -51,8 +51,9 @@ Route::get('/', function () {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::resource('/especies', EspecieController::class);
-
+Route::resource('especies', EspecieController::class)->parameters([
+    'especies' => 'especie'
+]);;
 Route::resource('/eventos', EventoController::class);
 
 Route::resource('/usuarios', UsuarioController::class);

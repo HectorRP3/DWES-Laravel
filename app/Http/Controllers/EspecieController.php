@@ -39,6 +39,25 @@ class EspecieController extends Controller
         $especie = Especie::find($id);
         return view('especies.show', compact('especie'));
     }
+    public function edit(Especie $especie)
+    {
+        return view('especies.edit', compact('especie'));
+    }
+
+    public function update(Request $request, Especie $especie)
+    {
+        $especie->update([
+            'nombreCientifico' => $request->nombreCientifico,
+            'nombreComun' => $request->nombreComun,
+            'clima' => $request->clima,
+            'regionOrigen' => $request->regionOrigen,
+            'crecimiento' => $request->crecimiento,
+            'imagenUrl' => $request->imagenUrl,
+            'enlace' => $request->enlace,
+        ]);
+        return redirect()->route('especies.index')->with('success', 'Especie actualizado con exito');
+    }
+
 
     public function destroy($id)
     {
