@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Beneficio;
 use Illuminate\Http\Request;
 use App\Models\Especie;
+use App\Http\Requests\EspeciePostRequest;
 
 class EspecieController extends Controller
 {
@@ -20,7 +21,7 @@ class EspecieController extends Controller
         return view('especies.create');
     }
 
-    public function store(Request $request)
+    public function store(EspeciePostRequest $request)
     {
         Especie::create([
             'nombreCientifico' => $request->nombreCientifico,
@@ -44,7 +45,7 @@ class EspecieController extends Controller
         return view('especies.edit', compact('especie'));
     }
 
-    public function update(Request $request, Especie $especie)
+    public function update(EspeciePostRequest $request, Especie $especie)
     {
         $especie->update([
             'nombreCientifico' => $request->nombreCientifico,

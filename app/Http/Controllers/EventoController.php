@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Especie;
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use App\Http\Requests\EventoPostRequest;
 
 class EventoController extends Controller
 {
@@ -23,7 +24,7 @@ class EventoController extends Controller
         return view('eventos.create');
     }
 
-    public function store(Request $request)
+    public function store(EventoPostRequest $request)
     {
         Evento::create([
             'nombre' => $request->nombre,
@@ -49,7 +50,7 @@ class EventoController extends Controller
         return view('eventos.edit', compact('evento'));
     }
 
-    public function update(Request $request, Evento $evento)
+    public function update(EventoPostRequest $request, Evento $evento)
     {
         $evento->update([
             'nombre' => $request->nombre,

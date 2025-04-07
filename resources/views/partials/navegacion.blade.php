@@ -31,7 +31,12 @@
                 <li><a href="{{ route('especies.create')}}">Añadir Especies</a></li>
             </ul>
         </li>
-
+        <li>Beneficios
+            <ul>
+                <li><a href="{{ route('beneficios.index')}}">Listar Beneficios</a></li>
+                <li><a href="{{ route('beneficios.create')}}">Añadir Beneficios</a></li>
+            </ul>
+        </li>
      </ul>
 </nav>
 

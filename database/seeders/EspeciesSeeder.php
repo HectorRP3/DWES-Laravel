@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Beneficio;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Especie;
@@ -16,7 +17,9 @@ class EspeciesSeeder extends Seeder
      */
     public function run(): void
     {
-        Especie::factory(5)->hasAttached(Evento::factory()->count(4), ["cantidad" => 5], 'evento')->create();
+        Especie::factory(5)->hasAttached(Evento::factory()->count(4), ["cantidad" => 5], 'evento')
+            ->hasAttached(Beneficio::factory()->count(4), [], 'beneficio')
+            ->create();
 
         // Especie::create([
         //     'nombreCientifico' => 'Especie Teste',

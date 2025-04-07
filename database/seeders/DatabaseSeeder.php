@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             EspeciesSeeder::class,
             UsuarioSeeder::class,
             EventosSeeder::class,
-            // TablasSeeder::class,
+            TablasSeeder::class,
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\NotaController;
 use App\Http\Controllers\prueba;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\BeneficioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -57,5 +58,7 @@ Route::resource('especies', EspecieController::class)->parameters([
 Route::resource('/eventos', EventoController::class);
 
 Route::resource('/usuarios', UsuarioController::class);
+
+Route::resource('/beneficios', BeneficioController::class);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

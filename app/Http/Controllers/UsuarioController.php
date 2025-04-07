@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsuarioPostRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Usuario;
@@ -22,16 +23,9 @@ class UsuarioController extends Controller
         return view('usuarios.create');
     }
 
-    public function store(Request $request)
+    public function store(UsuarioPostRequest $request)
     {
         $suscrito = $request->suscrito == 1 ? false : true;
-        $request->validate([
-            'nick' => 'required|unique:usuarios',
-            'email' => 'required|unique:usuarios|email',
-            'nombre' => 'required',
-            'apellidos' => 'required',
-            'password' => 'required'
-        ]);
         Usuario::create([
             'nick' => $request->nick,
             'nombre' => $request->nombre,
@@ -55,16 +49,9 @@ class UsuarioController extends Controller
         return view('usuarios.edit', compact('usuario'));
     }
 
-    public function update(Request $request, Usuario $usuario)
+    public function update(UsuarioPostRequest $request, Usuario $usuario)
     {
         $suscrito = $request->suscrito == 1 ? false : true;
-        $request->validate([
-            'nick' => 'required|unique:usuarios,nick,' . $usuario->id,
-            'email' => 'required|unique:usuarios,email,' . $usuario->id . '|email',
-            'nombre' => 'required',
-            'apellidos' => 'required',
-            'password' => 'required'
-        ]);
         $usuario->update([
             'nick' => $request->nick,
             'nombre' => $request->nombre,
