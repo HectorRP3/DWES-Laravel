@@ -67,9 +67,6 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         $usuario = Usuario::find($id);
-        // DB::table('participantes')->where('usuarios_id', $usuario->id)->delete();
-        // DB::table('eventos')->where('anfitrion_id', $usuario->id)->delete();
-        // DB::table('usuarios')->where('id', $usuario->id)->delete();
         $usuario->eventoParticipante()->delete();
         $usuario->eventoCrea()->delete();
         $usuario->delete();

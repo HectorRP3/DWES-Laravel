@@ -28,7 +28,7 @@ class UsuarioPostRequest extends FormRequest
             'karma' => 'integer',
             'nombre' => 'required|max:50|string',
             'apellidos' => 'required|max:100|string',
-            'password' => 'required|min:8|confirmed|string',
+            'password' => 'required|min:8|string',
         ];
     }
 

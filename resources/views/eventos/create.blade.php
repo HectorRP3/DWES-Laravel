@@ -4,9 +4,9 @@
 @endsection
 
 @section("contenido")
-<section class="section bg-red-100">
+<section class="section bg-green-200">
     <h1>Eventos</h1>
-    <form action="{{route('eventos.store')}}" method="POST" class="max-w-sm mx-auto border-2 border-solid border-[#890404] rounded-lg p-5">
+    <form action="{{route('eventos.store')}}" method="POST" class="max-w-sm mx-auto border-2 border-solid border-[#008000] rounded-lg p-5">
        @include('eventos.form',['btnText'=>'Añadir'])
     </form>
 </section>

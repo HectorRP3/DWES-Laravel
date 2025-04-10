@@ -14,7 +14,7 @@ body{
 }
 
 .navegacion{
-    background-color: rgb(137, 4, 4);
+    background-color:  #008000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,22 +60,23 @@ body{
                 color:white;
                 text-decoration: none;
                 font-size: 1.1rem;
+                white-space: nowrap;
             }
             &:hover{
                 font-weight: bold;
                 & ul{
                     position: absolute;
                     display: block;
-                    background-color: rgb(137, 4, 4);
+                    background-color:   #008000;
                     border-radius: 10px;
                     padding: 5px;
                     & li{
                         font-weight: normal;
                         padding: 5px;
                         &:hover{
-                            background-color: rgb(216, 176, 176);
+                            background-color: rgb(229, 255, 0);
                             a{
-                                color: rgb(137, 4, 4);
+                                color:   #008000;
                                 font-weight: bold;
                             }
                         }
@@ -88,7 +89,7 @@ body{
 
 .footer{
     padding: 1rem;
-    background-color: rgb(137, 4, 4);
+    background-color:  #008000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +104,7 @@ body{
     width: 100%;
     height: 100%;
     & > h1{
-        color: rgb(137, 4, 4);
+        color:  #008000;
         text-align: center;
         font-size: 3rem;
         cursor: default;
@@ -116,7 +117,7 @@ body{
         flex-wrap: wrap;
         height: 100%;
         & article{
-            border: 2px solid red;
+            border: 2px solid  #008000;
             padding: 5px;
             display: flex;
             flex-direction: column;
@@ -146,7 +147,7 @@ body{
 }
 
 article{
-    border: 2px solid red;
+    border: 2px solid rgb(59, 246, 59);
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -163,14 +164,14 @@ article{
         & li{
             padding: 0.5rem;
             &:hover{
-                background-color: rgb(216, 176, 176);
+                background-color: rgb(87, 245, 95);
             }
         }
     }
 }
 
 .form__label{
-    @apply   block w-full text-lg text-[#890404] text-left font-bold;
+    @apply  block w-full text-lg text-[#008000] text-left font-bold;
 }
 
 .form__control{
@@ -178,5 +179,5 @@ article{
 }
 
 .form__button{
-    @apply text-white bg-[#890404] hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+    @apply text-white bg-[#008000] hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
 }
