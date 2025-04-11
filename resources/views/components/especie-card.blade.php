@@ -1,10 +1,17 @@
  <article>
+     @if($especie->imagenUrl)
+        @php
+            $archivo = 'storage/'.$especie->imagenUrl;
+            $extension = pathinfo($archivo, PATHINFO_EXTENSION);
+        @endphp
+
+        <img src="{{asset($archivo)}}" alt="Imagen del evento" class="w-full h-48 object-cover"/>
+    @endif
     <h1>{{$especie->nombreCientifico}}</h1>
     <p>NombreCientifico: {{$especie->nombreCientifico}}</p>
     <p>NombreComun: {{$especie->nombreComun}}</p>
     <p>Clima: {{$especie->clima}}</p>
     <p>Crecimineto: {{$especie->crecimiento}}</p>
-    <p>ImagenUrl: {{$especie->imagenUrl}}</p>
     @isset($especie->evento)
         <p>Eventos en el que participa</p>
         <ul>

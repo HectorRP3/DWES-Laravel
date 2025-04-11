@@ -1,4 +1,12 @@
 <article>
+    @if($evento->imagenUrl)
+        @php
+            $archivo = 'storage/'.$evento->imagenUrl;
+            $extension = pathinfo($archivo, PATHINFO_EXTENSION);
+        @endphp
+
+        <img src="{{asset($archivo)}}" alt="Imagen del evento" class="w-full h-48 object-cover"/>
+    @endif
     <h2>{{$evento->nombre}}</h2>
     <p>Descripcion: {{$evento->descripcion}}</p>
     <p>Fecha: {{$evento->fecha}}</p>

@@ -24,7 +24,7 @@ class Especie extends Model
 
     public function evento()
     {
-        return $this->belongsToMany(Evento::class, "eventos_especies", "especies_id", "eventos_id")->withPivot("Cantidad");
+        return $this->belongsToMany(Evento::class, "eventos_especies", "especies_id", "eventos_id")->withPivot("cantidad");
     }
 
     public function beneficio()

@@ -38,7 +38,7 @@
 </div>
 <div class="mb-5 text-left">
     <label for="imagenUrl" class="form__label">Imagen</label>
-    <input type="text" name="imagenUrl" placeholder="Url de la imagen" class="form__control" id="imagenUrl" value="{{old('imagenUrl',$especie->imagenUrl?? '')}}"/>
+    <input  type="file"   name="imagenUrl" placeholder="Url de la imagen" class="form__control" id="imagenUrl" value="{{old('imagenUrl',$especie->imagenUrl?? '')}}"/>
     @error("imagenUrl")
         {{$message}}
     @enderror

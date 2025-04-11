@@ -27,7 +27,6 @@ class EspeciePostRequest extends FormRequest
             'clima' => 'required|max:50|string',
             'regionOrigen' => 'required|max:50|string',
             'crecimiento' => 'required|max:50|string',
-            'imagenUrl' => 'nullable|url|required',
             'enlace' => 'nullable|url'
         ];
     }
@@ -51,7 +50,6 @@ class EspeciePostRequest extends FormRequest
             'crecimiento.required' => 'El campo crecimiento es obligatorio.',
             'crecimiento.max' => 'El campo crecimiento no puede tener más de 50 caracteres.',
             'crecimiento.string' => 'El campo crecimiento debe ser una cadena de texto.',
-            'imagenUrl.url' => 'La URL de la imagen no es válida.',
             'imagenUrl.required' => 'La URL de la imagen es obligatoria.',
             'enlace.url' => 'La URL del enlace no es válida.'
         ];

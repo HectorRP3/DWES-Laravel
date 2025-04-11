@@ -61,4 +61,10 @@ Route::resource('/usuarios', UsuarioController::class);
 
 Route::resource('/beneficios', BeneficioController::class);
 
+Route::post('/eventos/{evento}/suscribir', [EventoController::class, 'addUser'])->name('eventos.suscribir');
+
+Route::post('/eventos/{evento}/addespecies', [EventoController::class, 'addespecies'])->name('eventos.addespecies');
+
+Route::post('/especies/{especie}/addbeneficios', [EspecieController::class, 'addbeneficios'])->name('especies.addbeneficios');
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

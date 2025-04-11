@@ -25,10 +25,9 @@ class EventoPostRequest extends FormRequest
             'nombre' => 'required|max:50|string',
             'descripcion' => 'required|max:500|string',
             'ubicacion' => 'required|max:100|string',
-            'tipoEvento' => 'required|in:competitivo,divertido',
-            'tipoTerreno' => 'required|in:interior,exterior',
+            'tipoEvento' => 'required',
+            'tipoTerreno' => 'required',
             'fecha' => 'required|date',
-            'imagenUrl' => 'nullable|url',
             'anfitrion_id' => 'required|exists:usuarios,id'
         ];
     }
@@ -51,7 +50,6 @@ class EventoPostRequest extends FormRequest
             'tipoTerreno.in' => 'El campo tipoTerreno debe ser uno de los siguientes valores: interior, exterior.',
             'fecha.required' => 'El campo fecha es obligatorio.',
             'fecha.date' => 'El campo fecha debe ser una fecha válida.',
-            'imagenUrl.url' => 'La URL de la imagen no es válida.',
             'anfitrion_id.required' => 'El anfitrión es obligatorio.',
             'anfitrion_id.exists' => 'El anfitrión seleccionado no existe.'
         ];
