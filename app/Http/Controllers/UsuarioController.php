@@ -9,6 +9,7 @@ use App\Models\Usuario;
 use App\Models\Evento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
 {
@@ -49,9 +50,18 @@ class UsuarioController extends Controller
         return view('usuarios.edit', compact('usuario'));
     }
 
-    public function update(UsuarioPostRequest $request, Usuario $usuario)
+    public function update(Request $request, Usuario $usuario)
     {
         $suscrito = $request->suscrito == 1 ? false : true;
+        $request->validate([
+            'nick' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
+            'email' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
+            'suscrito' => 'boolean',
+            'karma' => 'integer',
+            'nombre' => 'required|max:50|string',
+            'apellidos' => 'required|max:100|string',
+            'password' => 'nullable|min:8|string',
+        ]);
         $usuario->update([
             'nick' => $request->nick,
             'nombre' => $request->nombre,

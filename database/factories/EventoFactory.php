@@ -26,7 +26,7 @@ class EventoFactory extends Factory
             'tipoEvento' => $this->faker->randomElement(['Reforestacion', 'Charla', 'Taller']),
             'tipoTerreno' => $this->faker->randomElement(['Urbano', 'Rural', 'Montaña', 'Playa']),
             'fecha' => $this->faker->dateTime(),
-            'imagenUrl' => $this->faker->url(),
+            'imagenUrl' => "./eventos/9yoKXX0Q4MSroo3XCPIZiBZAmVpYu6HQllYiyC1Q.png",
             'anfitrion_id' => Usuario::factory(),
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),

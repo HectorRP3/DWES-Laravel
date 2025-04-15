@@ -24,7 +24,7 @@ class EspecieFactory extends Factory
             'clima' => $this->faker->name(),
             'regionOrigen' => $this->faker->name(),
             'crecimiento' => $this->faker->randomNumber(),
-            'imagenUrl' => $this->faker->url(),
+            'imagenUrl' => "./eventos/9yoKXX0Q4MSroo3XCPIZiBZAmVpYu6HQllYiyC1Q.png",
             'enlace' => $this->faker->url(),
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),

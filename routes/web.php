@@ -9,6 +9,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BeneficioController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\EventoController as ApiEventoController;
+
 Route::get('/', function () {
     return view('index');
 });
@@ -68,3 +70,8 @@ Route::post('/eventos/{evento}/addespecies', [EventoController::class, 'addespec
 Route::post('/especies/{especie}/addbeneficios', [EspecieController::class, 'addbeneficios'])->name('especies.addbeneficios');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Route::middleware('api')->prefix('api')->group(function () {
+    Route::get('/eventos', [ApiEventoController::class, 'index']);
+});

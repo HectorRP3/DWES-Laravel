@@ -6,6 +6,7 @@ use App\Models\Beneficio;
 use Illuminate\Http\Request;
 use App\Models\Especie;
 use App\Http\Requests\EspeciePostRequest;
+use App\Http\Requests\UpdateEspecieRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
@@ -61,7 +62,7 @@ class EspecieController extends Controller
         return view('especies.edit', compact('especie'));
     }
 
-    public function update(EspeciePostRequest $request, Especie $especie)
+    public function update(Request $request, Especie $especie)
     {
         $archivoPath = null;
 
@@ -73,22 +74,21 @@ class EspecieController extends Controller
             dump($archivo->getRealPath());
             dump(Storage::path($archivoPath));
         }
-        // $especie->update([
-        //     'nombreCientifico' => $request->nombreCientifico,
-        //     'nombreComun' => $request->nombreComun,
-        //     'clima' => $request->clima,
-        //     'regionOrigen' => $request->regionOrigen,
-        //     'crecimiento' => $request->crecimiento,
-        //     'imagenUrl' => $archivoPath,
-        //     'enlace' => $request->enlace,
-        // ]);
         $request->validate([
             'nombreCientifico' => [
                 'required',
                 Rule::unique('especies')->ignore($especie->id),
             ],
+            'nombreComun' => 'required|max:50|string',
+            'clima' => 'required|max:50|string',
+            'regionOrigen' => 'required|max:50|string',
+            'crecimiento' => 'required|max:50|string',
+            'enlace' => 'nullable|url'
         ]);
-        $especie->update([
+        if (!$request->hasFile('imagenUrl')) {
+            $archivoPath = $especie->imagenUrl;
+        }
+        $especie->updateOrFail([
             'nombreCientifico' => $request->nombreCientifico,
             'nombreComun' => $request->nombreComun,
             'clima' => $request->clima,
