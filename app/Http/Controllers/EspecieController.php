@@ -88,7 +88,7 @@ class EspecieController extends Controller
         if (!$request->hasFile('imagenUrl')) {
             $archivoPath = $especie->imagenUrl;
         }
-        $especie->updateOrFail([
+        $especie->update([
             'nombreCientifico' => $request->nombreCientifico,
             'nombreComun' => $request->nombreComun,
             'clima' => $request->clima,

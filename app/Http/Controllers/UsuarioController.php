@@ -77,8 +77,11 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         $usuario = Usuario::find($id);
-        $usuario->eventoParticipante()->delete();
-        $usuario->eventoCrea()->delete();
+        if (!$usuario) {
+            return redirect()->route('usuarios.index')->with('error', 'Usuario no encontrado');
+        }
+        // $usuario->eventoParticipante()->detach();
+        // $usuario->eventoCrea()->delete();
         $usuario->delete();
         return redirect()->route('usuarios.index')->with('success', 'Usuario borrado con exito');
     }

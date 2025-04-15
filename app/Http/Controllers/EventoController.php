@@ -82,6 +82,9 @@ class EventoController extends Controller
             dump($archivo->getRealPath());
             dump(Storage::path($archivoPath));
         }
+        if ($archivoPath == null) {
+            $archivoPath = $evento->imagenUrl;
+        }
         $evento->update([
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
