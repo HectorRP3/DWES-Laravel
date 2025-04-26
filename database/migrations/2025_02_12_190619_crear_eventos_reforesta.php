@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('tipoTerreno', ['Urbano', 'Rural', 'Montaña', 'Playa']);
             $table->date('fecha');
             $table->string('imagenUrl');
+            $table->string('documentoUrl');
             $table->timestamps();
             $table->primary(['id']);
             $table->foreignId('anfitrion_id')->nullable()->constrained('usuarios')->onDelete('cascade');

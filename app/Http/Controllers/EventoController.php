@@ -35,8 +35,17 @@ class EventoController extends Controller
 
             $archivo = $request->file('imagenUrl');
 
-            dump($archivo->getRealPath());
-            dump(Storage::path($archivoPath));
+            // dump($archivo->getRealPath());
+            // dump(Storage::path($archivoPath));
+        }
+        $archivoPath2 = null;
+        if ($request->hasFile('documentoUrl')) {
+            $archivoPath2 = $request->file('documentoUrl')->store('eventos', 'public');
+
+            $archivo = $request->file('documentoUrl');
+
+            // dump($archivo->getRealPath());
+            // dump(Storage::path($archivoPath2));
         }
 
 
@@ -48,6 +57,7 @@ class EventoController extends Controller
             'tipoTerreno' => $request->tipoTerreno,
             'fecha' => $request->fecha,
             'imagenUrl' => $archivoPath,
+            'documentoUrl' => $archivoPath2,
             'anfitrion_id' => $request->anfitrion_id,
         ]);
         return redirect()->route('eventos.index')->with('success', 'Evento Creado!');
@@ -73,14 +83,26 @@ class EventoController extends Controller
     public function update(EventoPostRequest $request, Evento $evento)
     {
         $archivoPath = null;
+        $archivoPath2 = null;
 
         if ($request->hasFile('imagenUrl')) {
             $archivoPath = $request->file('imagenUrl')->store('eventos', 'public');
 
             $archivo = $request->file('imagenUrl');
 
-            dump($archivo->getRealPath());
-            dump(Storage::path($archivoPath));
+            // dump($archivo->getRealPath());
+            // dump(Storage::path($archivoPath));
+        }
+        if ($request->hasFile('documentoUrl')) {
+            $archivoPath2 = $request->file('documentoUrl')->store('eventos', 'public');
+
+            $archivo = $request->file('documentoUrl');
+
+            // dump($archivo->getRealPath());
+            // dump(Storage::path($archivoPath2));
+        }
+        if ($evento->documentoUrl == null) {
+            $archivoPath2 = $evento->documentoUrl;
         }
         if ($archivoPath == null) {
             $archivoPath = $evento->imagenUrl;
@@ -93,6 +115,7 @@ class EventoController extends Controller
             'tipoTerreno' => $request->tipoTerreno,
             'fecha' => $request->fecha,
             'imagenUrl' => $archivoPath,
+            'documentoUrl' => $archivoPath2,
             'anfitrion_id' => $request->anfitrion_id,
         ]);
         return redirect()->route('eventos.index')->with('success', 'Evento actualizado con exito');

@@ -10,7 +10,14 @@
     <h2>{{$evento->nombre}}</h2>
     <p>Descripcion: {{$evento->descripcion}}</p>
     <p>Fecha: {{$evento->fecha}}</p>
-    <p>ImagenUrl: {{$evento->imagenUrl}}</p>
+    @php
+        $archivo = 'storage/'.$evento->documentoUrl;
+        $extension = pathinfo($archivo, PATHINFO_EXTENSION);
+    @endphp
+    <a href="{{ asset($archivo) }}"
+   target="_blank"
+   aria-label="Abrir PDF del evento en nueva pestaña"
+   class="bg-green-500 rounded-xl text-center !underline p-3 ">Link pdf </a>
     <p>Anfitrion id: {{$evento->anfitrion_id}}</p>
     <h1>Especies</h1>
     @isset($evento->especie)

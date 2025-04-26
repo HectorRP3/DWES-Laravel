@@ -81,6 +81,15 @@
     </p>
 </div>
 <div class="mb-5 text-left">
+    <label for="documentoUrl" class="form__label">DocumentoUrl</label>
+    <input type="file"  name="documentoUrl" placeholder="Url de la imagen" class="form__control" id="documentoUrl" value="{{old('documentoUrl',$evento->documentoUrl?? '')}}"/>
+    <p>
+        @error("documentoUrl")
+            {{$message}}
+        @enderror
+    </p>
+</div>
+<div class="mb-5 text-left">
     <label for="anfitrion_id" class="form__label">Anfitrion</label>
     <input type="number" name="anfitrion_id" placeholder="Id del anfitrion" class="form__control" id="anfitrion_id" value="{{old('anfitrion_id',$evento->anfitrion_id?? '')}}"/>
     <p>

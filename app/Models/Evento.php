@@ -18,6 +18,7 @@ class Evento extends Model
         'tipoTerreno',
         'fecha',
         'imagenUrl',
+        'documentoUrl',
         'anfitrion_id',
         'created_at',
         'updated_at',
