@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('karma');
             $table->boolean('suscrito');
+            $table->string('imagenUrl');
             $table->timestamps();
             $table->primary(['id']);
         });

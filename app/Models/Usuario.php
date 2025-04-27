@@ -20,6 +20,7 @@ class Usuario extends Model
         'suscrito',
         'created_at',
         'updated_at',
+        'imagenUrl',
     ];
 
     public function eventoCrea()

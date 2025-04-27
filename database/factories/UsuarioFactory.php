@@ -27,6 +27,7 @@ class UsuarioFactory extends Factory
             'password' => $this->faker->password(),
             'karma' => $this->faker->randomNumber(),
             'suscrito' => $this->faker->boolean(),
+            'imagenUrl' => "./usuarios/9yoKXX0Q4MSroo3XCPIZiBZAmVpYu6HQllYiyC1Q.png",
             'updated_at' => $this->faker->dateTime(),
             'created_at' => $this->faker->dateTime(),
         ];

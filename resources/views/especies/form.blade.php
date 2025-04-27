@@ -44,6 +44,13 @@
     @enderror
 </div>
 <div class="mb-5 text-left">
+    <label for="imagenUrl" class="form__label">Imagen</label>
+    <input  type="file"   name="imagenUrl" placeholder="Url de la imagen" class="form__control" id="imagenUrl" value="{{old('imagenUrl',$especie->imagenUrl?? '')}}"/>
+    @error("")
+        {{$message}}
+    @enderror
+</div>
+<div class="mb-5 text-left">
     <label for="enlace" class="form__label">Enlace</label>
     <input type="text" name="enlace" placeholder="Enlace de la especie" class="form__control" id="enlace" value="{{old('enlace',$especie->enlace?? '')}}"/>
     @error("enlace")

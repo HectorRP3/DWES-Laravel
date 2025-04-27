@@ -32,22 +32,11 @@ class EventoController extends Controller
 
         if ($request->hasFile('imagenUrl')) {
             $archivoPath = $request->file('imagenUrl')->store('eventos', 'public');
-
-            $archivo = $request->file('imagenUrl');
-
-            // dump($archivo->getRealPath());
-            // dump(Storage::path($archivoPath));
         }
         $archivoPath2 = null;
         if ($request->hasFile('documentoUrl')) {
             $archivoPath2 = $request->file('documentoUrl')->store('eventos', 'public');
-
-            $archivo = $request->file('documentoUrl');
-
-            // dump($archivo->getRealPath());
-            // dump(Storage::path($archivoPath2));
         }
-
 
         Evento::create([
             'nombre' => $request->nombre,

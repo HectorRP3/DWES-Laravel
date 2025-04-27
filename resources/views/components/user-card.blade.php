@@ -1,5 +1,14 @@
 <article>
         <h1>{{$usuario->nombre}}</h1>
+        @if($usuario->imagenUrl)
+        @php
+            $archivo = 'storage/'.$usuario->imagenUrl;
+            $extension = pathinfo($archivo, PATHINFO_EXTENSION);
+        @endphp
+
+        <img src="{{asset($archivo)}}" alt="Avatar" class="w-full h-48 object-cover"/>
+    @endif
+        <p>Nick: {{$usuario->nick}}</p>
         <p>Email: {{$usuario->email}}</p>
         <p>Apellidos: {{$usuario->apellidos}}</p>
         <p>Karma: {{$usuario->karma}}</p>

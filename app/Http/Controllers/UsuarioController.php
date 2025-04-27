@@ -27,6 +27,10 @@ class UsuarioController extends Controller
     public function store(UsuarioPostRequest $request)
     {
         $suscrito = $request->suscrito == 1 ? false : true;
+        $archivoPath = null;
+        if ($request->hasFile('imagenUrl')) {
+            $archivoPath = $request->file('imagenUrl')->store('usuarios', 'public');
+        }
         Usuario::create([
             'nick' => $request->nick,
             'nombre' => $request->nombre,
@@ -34,7 +38,8 @@ class UsuarioController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'suscrito' => $suscrito,
-            'karma' => 0
+            'imagenUrl' => $archivoPath,
+            'karma' => 0,
         ]);
         return redirect()->route('usuarios.index')->with('success', 'UsuariosCreado!');
     }
@@ -53,6 +58,12 @@ class UsuarioController extends Controller
     public function update(Request $request, Usuario $usuario)
     {
         $suscrito = $request->suscrito == 1 ? false : true;
+        if ($request->hasFile('imagenUrl')) {
+            $archivoPath = $request->file('imagenUrl')->store('usuarios', 'public');
+        }
+        if ($usuario->imagenUrl == null) {
+            $archivoPath = $usuario->imagenUrl;
+        }
         $request->validate([
             'nick' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
             'email' => ['required', Rule::unique('usuarios')->ignore($usuario->id)],
@@ -69,6 +80,7 @@ class UsuarioController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'suscrito' => $suscrito,
+            'imagenUrl' => $archivoPath,
         ]);
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado con exito');
     }

@@ -51,4 +51,13 @@
         {{$message}}
     @enderror
 </div>
+<div class="mb-5 text-left">
+    <label for="imagenUrl" class="form__label">Imagen</label>
+    <input type="file"  name="imagenUrl" placeholder="Url de la imagen" class="form__control" id="imagenUrl" value="{{old('imagenUrl',$usuario->imagenUrl?? '')}}"/>
+    <p>
+        @error("imagenUrl")
+            {{$message}}
+        @enderror
+    </p>
+</div>
 <button type="submit" class="form__button">{{ $btnText }} usuario</button>
