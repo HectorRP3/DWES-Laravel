@@ -17,7 +17,6 @@
     <form action="{{ route('especies.addbeneficios', $especie->id) }}" method="POST" class="space-y-4">
       @csrf
 
-      <!-- Lista de beneficios -->
       <div class="grid grid-cols-1 gap-3">
         @foreach ($beneficios as $beneficio)
           <label class="flex items-center gap-3 cursor-pointer select-none">
@@ -32,7 +31,6 @@
         @endforeach
       </div>
 
-      <!-- Botón enviar -->
       <button
         type="submit"
         class="w-full inline-flex justify-center items-center gap-2 rounded-xl border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-md transition hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"

@@ -10,6 +10,7 @@ use App\Http\Controllers\BeneficioController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\EventoController as ApiEventoController;
+use App\Models\Usuario;
 
 Route::get('/', function () {
     return view('index');
@@ -75,3 +76,9 @@ Route::post('/especies/{especie}/addbeneficios', [EspecieController::class, 'add
 Route::middleware('api')->prefix('api')->group(function () {
     Route::get('/eventos', [ApiEventoController::class, 'index']);
 });
+
+Route::get('/login', [UsuarioController::class, 'showLogin'])->name('usuarios.showLogin');
+
+Route::post('/login', [UsuarioController::class, 'login'])->name('login');
+
+Route::middleware('auth')->get('/perfil', [UsuarioController::class, 'perfil'])->name('perfil');

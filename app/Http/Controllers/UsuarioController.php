@@ -10,6 +10,7 @@ use App\Models\Evento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -96,5 +97,30 @@ class UsuarioController extends Controller
         // $usuario->eventoCrea()->delete();
         $usuario->delete();
         return redirect()->route('usuarios.index')->with('success', 'Usuario borrado con exito');
+    }
+
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->intended('/perfil')->with('success', 'Bienvenido');
+        }
+
+        return back()->with(['email' => 'Usuarios o contraseña incorrectos'])->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/')->with('success', 'Has cerrado sesión');
+    }
+    public function perfil()
+    {
+        $usuario = Auth::user();
+        return view('usuarios.show', compact('usuario'));
     }
 }

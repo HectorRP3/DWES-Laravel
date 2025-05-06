@@ -14,7 +14,7 @@ class EventoController extends Controller
     public function index()
     {
         //
-        $eventos = Evento::select('id', 'nombre', 'descripcion', 'ubicacion', 'tipoEvento', 'tipoTerreno', 'fecha', 'imagenUrl')->with('especie')->get();
+        $eventos = Evento::select('id', 'nombre', 'descripcion', 'ubicacion', 'tipoEvento', 'tipoTerreno', 'fecha', 'imagenUrl', 'anfitrion_id')->with('especie')->with('usuarioCrea:id,nick')->with('usuarioParticipante:id,nick')->get();
         return response()->json($eventos, 200);
     }
 

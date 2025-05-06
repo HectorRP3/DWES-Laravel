@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password', 255);
+            $table->rememberToken();
             $table->integer('karma');
             $table->boolean('suscrito');
             $table->string('imagenUrl');

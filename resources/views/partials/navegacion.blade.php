@@ -37,6 +37,7 @@
                 <li><a href="{{ route('beneficios.create')}}">Añadir Beneficios</a></li>
             </ul>
         </li>
+        <li><a href="{{ route('usuarios.showLogin')}}">LoGIN</a></li>
      </ul>
 </nav>
 

@@ -13,7 +13,6 @@
 
     <div class="flex justify-center items-center min-h-screen bg-gradient-to-br from-sky-100 to-sky-50 py-8">
   <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-lg space-y-10">
-    <!-- Añadir usuarios -->
     <section class="space-y-6">
       <h2 class="text-2xl font-semibold text-center text-sky-800">Añadir usuarios</h2>
       <form action="{{ route('eventos.suscribir', $evento->id) }}" method="POST" class="space-y-4">
@@ -32,7 +31,6 @@
 
     <div class="border-t border-sky-200"></div>
 
-    <!-- Añadir especies -->
     <section class="space-y-6">
       <h2 class="text-2xl font-semibold text-center text-emerald-800">Añadir especies</h2>
       <form action="{{ route('eventos.addespecies', $evento->id) }}" method="POST" class="space-y-4">
