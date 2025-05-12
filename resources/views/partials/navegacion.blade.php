@@ -37,8 +37,14 @@
                 <li><a href="{{ route('beneficios.create')}}">Añadir Beneficios</a></li>
             </ul>
         </li>
-        <li><a href="{{ route('usuarios.showLogin')}}">LoGIN</a></li>
+        @if(Auth::check())
+            <li><a href="{{ route("perfil")}}">{{Auth::user()->nombre}}</a></li>
+            <li><a href="{{ route('logout')}}">Logout</a></li>
+        @else
+            <li><a href="{{ route('usuarios.showLogin')}}">LoGIN</a></li>
+        @endif
      </ul>
+
 </nav>
 
 

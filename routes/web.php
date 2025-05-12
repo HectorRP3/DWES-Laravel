@@ -81,4 +81,6 @@ Route::get('/login', [UsuarioController::class, 'showLogin'])->name('usuarios.sh
 
 Route::post('/login', [UsuarioController::class, 'login'])->name('login');
 
+Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
+
 Route::middleware('auth')->get('/perfil', [UsuarioController::class, 'perfil'])->name('perfil');

@@ -25,6 +25,7 @@ class Usuario extends Authenticatable
     ];
 
     protected $hidden = [
+        'pivot',
         'password',
         'remember_token',
     ];
